@@ -59,20 +59,12 @@ export default function FullScreenDialog() {
                         <Typography variant="h6" className={classes.title}>
                             مدیریت ویژگی ها
                         </Typography>
-                        <Button autoFocus color="inherit" onClick={handleClose}>
+                        {/* <Button autoFocus color="inherit" onClick={handleClose}>
                             ثبت اطلاعات
-                        </Button>
+                        </Button> */}
                     </Toolbar>
                 </AppBar>
-                <List>
-                    <ListItem button>
-                        <ListItemText primary="Phone ringtone" secondary="Titania" />
-                    </ListItem>
-                    <Divider />
-                    <ListItem button>
-                        <ListItemText primary="Default notification ringtone" secondary="Tethys" />
-                    </ListItem>
-                </List>
+                
             </Dialog>
         </div>
     );
