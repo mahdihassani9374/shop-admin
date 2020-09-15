@@ -13,6 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
 import Slide from '@material-ui/core/Slide';
 import { TransitionProps } from '@material-ui/core/transitions';
+import TextField from '@material-ui/core/TextField/TextField';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -33,7 +34,7 @@ const Transition = React.forwardRef(function Transition(
     return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function FullScreenDialog() {
+const Brand = () => {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
 
@@ -47,8 +48,8 @@ export default function FullScreenDialog() {
 
     return (
         <div>
-            <Button variant="outlined" color="secondary" onClick={handleClickOpen}>
-                مدیریت ویژگی ها
+            <Button variant="outlined" color="primary" onClick={handleClickOpen} style={{ marginRight: 5 }}>
+                مدیریت برند ها
             </Button>
             <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
                 <AppBar className={classes.appBar}>
@@ -57,13 +58,18 @@ export default function FullScreenDialog() {
                             <CloseIcon />
                         </IconButton>
                         <Typography variant="h6" className={classes.title}>
-                            مدیریت ویژگی ها
+                            مدیریت برند ها
                         </Typography>
                         {/* <Button autoFocus color="inherit" onClick={handleClose}>
                             ثبت اطلاعات
                         </Button> */}
                     </Toolbar>
                 </AppBar>
+                <form autoComplete="off" style={{ padding: 10 }}>
+                    <TextField id="standard-basic" label="نام برند" />
+                    <Button variant="outlined" style={{ marginTop: 12, marginRight: 10 }} color="primary">ثبت</Button>
+                </form>
+                <Divider style={{ marginTop: 30 }} />
                 <List>
                     <ListItem button>
                         <ListItemText primary="Phone ringtone" secondary="Titania" />
@@ -77,3 +83,5 @@ export default function FullScreenDialog() {
         </div>
     );
 }
+
+export default Brand;

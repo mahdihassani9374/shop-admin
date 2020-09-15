@@ -7,10 +7,10 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { Divider } from '@material-ui/core';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button/Button';
 import Menu from '@material-ui/core/Menu/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import { Feature } from '../Feature';
+import { Brand } from '../Brand';
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -83,9 +83,7 @@ const List = () => {
                         <Divider />
                         <CardActions disableSpacing>
                             <Feature />
-                            <Button variant="outlined" disabled style={{ marginRight: 5 }}>
-                                مدیریت برند ها
-                            </Button>
+                            <Brand />
                         </CardActions>
                     </Card>
                 </Grid>)}

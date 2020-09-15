@@ -6,6 +6,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { makeStyles } from '@material-ui/core/styles';
+import { useForm } from 'react-hook-form'
 
 const useStyles = makeStyles(() => ({
     paper: {
@@ -28,30 +29,37 @@ const Define = ({ openCaterory, setOpenCategory }: Props) => {
         setOpenCategory(false);
     };
 
+    const { register, handleSubmit } = useForm();
+
+    const onSubmit = (data: any) => {
+        console.log(data)
+    }
+
     return (
-        <div>
+        <form onSubmit={handleSubmit(onSubmit)}>
             <Dialog open={openCaterory} aria-labelledby="form-dialog-title" classes={{ paper: classes.paper }}>
                 <DialogTitle id="form-dialog-title">دسته بندی جدید / ویرایش</DialogTitle>
                 <DialogContent>
                     <TextField
                         autoFocus
                         margin="dense"
-                        id="name"
+                        name="categoryName"
                         label="نام دسته بندی"
                         type="text"
                         fullWidth
+                        ref={register}
                     />
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose} color="primary">
                         انصراف
                     </Button>
-                    <Button onClick={handleClose} color="primary">
+                    <Button type="submit" color="primary">
                         ثبت
                     </Button>
                 </DialogActions>
             </Dialog>
-        </div>
+        </form>
     );
 }
 
