@@ -2,9 +2,6 @@ import React from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItem from '@material-ui/core/ListItem';
-import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -14,6 +11,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import Slide from '@material-ui/core/Slide';
 import { TransitionProps } from '@material-ui/core/transitions';
 import TextField from '@material-ui/core/TextField/TextField';
+import { List as ListComponent } from './Components';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -66,19 +64,11 @@ const Brand = () => {
                     </Toolbar>
                 </AppBar>
                 <form autoComplete="off" style={{ padding: 10 }}>
-                    <TextField id="standard-basic" label="نام برند" />
+                    <TextField id="standard-basic" label="عنوان برند" />
                     <Button variant="outlined" style={{ marginTop: 12, marginRight: 10 }} color="primary">ثبت</Button>
                 </form>
-                <Divider style={{ marginTop: 30 }} />
-                <List>
-                    <ListItem button>
-                        <ListItemText primary="Phone ringtone" secondary="Titania" />
-                    </ListItem>
-                    <Divider />
-                    <ListItem button>
-                        <ListItemText primary="Default notification ringtone" secondary="Tethys" />
-                    </ListItem>
-                </List>
+                <Divider style={{ marginTop: 20 }} />
+                <ListComponent />
             </Dialog>
         </div>
     );

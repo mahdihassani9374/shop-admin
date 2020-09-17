@@ -1,0 +1,1 @@
+export { default as Define } from './Define';

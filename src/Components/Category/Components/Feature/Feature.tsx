@@ -2,10 +2,6 @@ import React from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItem from '@material-ui/core/ListItem';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -13,6 +9,9 @@ import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
 import Slide from '@material-ui/core/Slide';
 import { TransitionProps } from '@material-ui/core/transitions';
+import TextField from '@material-ui/core/TextField';
+import { List as ListComponent, Define } from './Components';
+import Divider from '@material-ui/core/Divider';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -36,6 +35,7 @@ const Transition = React.forwardRef(function Transition(
 export default function FullScreenDialog() {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
+    const [openModal, setOpenModal] = React.useState(false);
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -64,15 +64,13 @@ export default function FullScreenDialog() {
                         </Button> */}
                     </Toolbar>
                 </AppBar>
-                <List>
-                    <ListItem button>
-                        <ListItemText primary="Phone ringtone" secondary="Titania" />
-                    </ListItem>
-                    <Divider />
-                    <ListItem button>
-                        <ListItemText primary="Default notification ringtone" secondary="Tethys" />
-                    </ListItem>
-                </List>
+                <form autoComplete="off" style={{ padding: 10 }}>
+                    <TextField id="standard-basic" label="عنوان دسته بندی" />
+                    <Button variant="outlined" style={{ marginTop: 12, marginRight: 10 }} color="primary">ثبت</Button>
+                </form>
+                <Divider style={{ marginTop: 20 }} />
+                <ListComponent setOpenModal={setOpenModal} />
+                <Define open={openModal} setOpen={setOpenModal} />
             </Dialog>
         </div>
     );

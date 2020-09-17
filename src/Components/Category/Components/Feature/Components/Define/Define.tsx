@@ -18,15 +18,15 @@ const useStyles = makeStyles(() => ({
 }));
 
 interface Props {
-    openCaterory: boolean,
-    setOpenCategory: (value: boolean) => void
+    open: boolean,
+    setOpen: (value: boolean) => void
 }
 
-const Define = ({ openCaterory, setOpenCategory }: Props) => {
+const Define = ({ open, setOpen }: Props) => {
     const classes = useStyles();
 
     const handleClose = () => {
-        setOpenCategory(false);
+        setOpen(false);
     };
 
     const { register, handleSubmit } = useForm();
@@ -37,14 +37,14 @@ const Define = ({ openCaterory, setOpenCategory }: Props) => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <Dialog open={openCaterory} aria-labelledby="form-dialog-title" classes={{ paper: classes.paper }}>
-                <DialogTitle id="form-dialog-title">دسته بندی جدید / ویرایش</DialogTitle>
+            <Dialog open={open} aria-labelledby="form-dialog-title" classes={{ paper: classes.paper }}>
+                <DialogTitle id="form-dialog-title"> ویژگی جدید / ویرایش</DialogTitle>
                 <DialogContent>
                     <TextField
                         autoFocus
                         margin="dense"
                         name="categoryName"
-                        label="عنوان دسته بندی"
+                        label="عنوان ویژگی"
                         type="text"
                         fullWidth
                         ref={register}
