@@ -1,10 +1,10 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route , HashRouter } from 'react-router-dom';
 import { Home, Category, Product, Layout } from './Components'
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Switch>
         <Layout>
           <Route exact path="/" component={Home}></Route>
@@ -13,7 +13,7 @@ const App = () => {
           {/* <Route component={NoMatch} /> */}
         </Layout>
       </Switch>
-    </BrowserRouter>
+    </HashRouter>
 
 
   );
