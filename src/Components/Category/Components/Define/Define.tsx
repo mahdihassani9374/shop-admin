@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -24,12 +24,16 @@ interface Props {
 
 const Define = ({ openCaterory, setOpenCategory }: Props) => {
     const classes = useStyles();
+    const { register, handleSubmit } = useForm();
+
+    useEffect(() => {
+        console.log('hello');
+        console.log(register);
+    }, []);
 
     const handleClose = () => {
         setOpenCategory(false);
     };
-
-    const { register, handleSubmit } = useForm();
 
     const onSubmit = (data: any) => {
         console.log(data)
@@ -48,6 +52,7 @@ const Define = ({ openCaterory, setOpenCategory }: Props) => {
                         type="text"
                         fullWidth
                         ref={register}
+                        autoComplete={''}
                     />
                 </DialogContent>
                 <DialogActions>

@@ -44,7 +44,7 @@ const Category = () => {
                 <AddIcon />
             </Fab>
         </Tooltip>
-        <Define openCaterory={openCaterory} setOpenCategory={setOpenCategory} />
+        {openCaterory && <Define openCaterory={openCaterory} setOpenCategory={setOpenCategory} />}
         <List />
     </div>
 }

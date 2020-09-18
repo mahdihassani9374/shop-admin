@@ -1,8 +1,8 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
+import { Table } from './Components';
 
 const Product = () => {
-    return <Typography>Product</Typography>
+    return <Table />
 }
 
 export default Product;
