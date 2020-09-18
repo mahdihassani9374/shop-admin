@@ -12,6 +12,7 @@ import Slide from '@material-ui/core/Slide';
 import { TransitionProps } from '@material-ui/core/transitions';
 import TextField from '@material-ui/core/TextField/TextField';
 import { List as ListComponent } from './Components';
+import { useForm } from 'react-hook-form';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -35,6 +36,7 @@ const Transition = React.forwardRef(function Transition(
 const Brand = () => {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
+    const { register, handleSubmit } = useForm();
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -43,6 +45,8 @@ const Brand = () => {
     const handleClose = () => {
         setOpen(false);
     };
+
+    const submit = (data: any) => { console.log(data) };
 
     return (
         <div>
@@ -63,9 +67,9 @@ const Brand = () => {
                         </Button> */}
                     </Toolbar>
                 </AppBar>
-                <form autoComplete="off" style={{ padding: 10 }}>
-                    <TextField id="standard-basic" label="عنوان برند" />
-                    <Button variant="outlined" style={{ marginTop: 12, marginRight: 10 }} color="primary">ثبت</Button>
+                <form onSubmit={handleSubmit(submit)} autoComplete="off" style={{ padding: 10 }}>
+                    <TextField inputRef={register} name="title" label="عنوان برند" />
+                    <Button type="submit" variant="outlined" style={{ marginTop: 12, marginRight: 10 }} color="primary">ثبت</Button>
                 </form>
                 <Divider style={{ marginTop: 20 }} />
                 <ListComponent />

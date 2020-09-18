@@ -28,7 +28,6 @@ const Define = ({ openCaterory, setOpenCategory }: Props) => {
 
     useEffect(() => {
         console.log('hello');
-        console.log(register);
     }, []);
 
     const handleClose = () => {
