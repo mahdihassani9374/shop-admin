@@ -36,7 +36,7 @@ const Transition = React.forwardRef(function Transition(
 const Brand = () => {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, errors } = useForm();
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -68,8 +68,9 @@ const Brand = () => {
                     </Toolbar>
                 </AppBar>
                 <form onSubmit={handleSubmit(submit)} autoComplete="off" style={{ padding: 10 }}>
-                    <TextField inputRef={register} name="title" label="عنوان برند" />
+                    <TextField inputRef={register({ required: true })} name="title" label="عنوان برند" />
                     <Button type="submit" variant="outlined" style={{ marginTop: 12, marginRight: 10 }} color="primary">ثبت</Button>
+                    {errors.title && <div style={{ color: 'red' }}>عنوان برند الزامی می باشد</div>}
                 </form>
                 <Divider style={{ marginTop: 20 }} />
                 <ListComponent />
