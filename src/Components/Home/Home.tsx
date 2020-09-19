@@ -1,8 +1,14 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
+import { FileUploader } from './../../Components';
+
 
 const Home = () => {
-    return <Typography>home</Typography>
+    const fileUpload = (data: any) => {
+        console.log(data)
+    }
+    return <div >
+        <FileUploader callback={fileUpload} />
+    </div >
 }
 
 export default Home;

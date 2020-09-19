@@ -20,3 +20,7 @@ a {
 .MuiPaper-elevation8 {
   box-shadow: 0px 5px 5px -3px rgb(251 251 251 / 20%), 0px 8px 10px 1px rgb(230 226 226 / 14%), 0px 3px 14px 2px rgb(88 66 66 / 12%) !important;
 }
+
+.MuiDropzoneArea-textContainer {
+  margin-top: 20px;
+}
