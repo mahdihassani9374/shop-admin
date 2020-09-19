@@ -36,8 +36,8 @@ const Define = ({ open, setOpen }: Props) => {
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <Dialog open={open} aria-labelledby="form-dialog-title" classes={{ paper: classes.paper }}>
+        <Dialog open={open} aria-labelledby="form-dialog-title" classes={{ paper: classes.paper }}>
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <DialogTitle id="form-dialog-title"> ویژگی جدید / ویرایش</DialogTitle>
                 <DialogContent>
                     <TextField
@@ -47,7 +47,7 @@ const Define = ({ open, setOpen }: Props) => {
                         label="عنوان ویژگی"
                         type="text"
                         fullWidth
-                        ref={register}
+                        inputRef={register}
                     />
                 </DialogContent>
                 <DialogActions>
@@ -58,8 +58,8 @@ const Define = ({ open, setOpen }: Props) => {
                         ثبت
                     </Button>
                 </DialogActions>
-            </Dialog>
-        </form>
+            </form>
+        </Dialog>
     );
 }
 

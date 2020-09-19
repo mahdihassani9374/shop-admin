@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -26,10 +26,6 @@ const Define = ({ openCaterory, setOpenCategory }: Props) => {
     const classes = useStyles();
     const { register, handleSubmit } = useForm();
 
-    useEffect(() => {
-        console.log('hello');
-    }, []);
-
     const handleClose = () => {
         setOpenCategory(false);
     };
@@ -39,8 +35,8 @@ const Define = ({ openCaterory, setOpenCategory }: Props) => {
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <Dialog open={openCaterory} aria-labelledby="form-dialog-title" classes={{ paper: classes.paper }}>
+        <Dialog open={openCaterory} aria-labelledby="form-dialog-title" classes={{ paper: classes.paper }}>
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <DialogTitle id="form-dialog-title">دسته بندی جدید / ویرایش</DialogTitle>
                 <DialogContent>
                     <TextField
@@ -50,8 +46,7 @@ const Define = ({ openCaterory, setOpenCategory }: Props) => {
                         label="عنوان دسته بندی"
                         type="text"
                         fullWidth
-                        ref={register}
-                        autoComplete={''}
+                        inputRef={register}
                     />
                 </DialogContent>
                 <DialogActions>
@@ -62,8 +57,8 @@ const Define = ({ openCaterory, setOpenCategory }: Props) => {
                         ثبت
                     </Button>
                 </DialogActions>
-            </Dialog>
-        </form>
+            </form>
+        </Dialog>
     );
 }
 
