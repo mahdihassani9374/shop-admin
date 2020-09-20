@@ -41,7 +41,6 @@ const App = () => {
         <CircularProgress color="inherit" />
       </Backdrop>
     </div>
-
   );
 }
 
