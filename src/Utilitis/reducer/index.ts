@@ -4,13 +4,14 @@ export interface InitModel {
     Loading: boolean
 }
 const initData: InitModel = {
-    Loading: true
+    Loading: false
 }
 
 const commentReducer = (state: any = initData, action: any) => {
+    console.log(state, action);
     switch (action.type) {
-        case SET_LOADING: return setLoading;
-        default : return state
+        case SET_LOADING: setLoading(state, action.payload);
+        default: return state
     }
 }
 

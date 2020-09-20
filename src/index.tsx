@@ -23,14 +23,14 @@ const jss = create({
 });
 
 ReactDOM.render(
-  <StylesProvider jss={jss}>
-    <ThemeProvider theme={Theme}>
-      <CssBaseline />
-      <Provider store={store}>
+  <Provider store={store}>
+    <StylesProvider jss={jss}>
+      <ThemeProvider theme={Theme}>
+        <CssBaseline />
         <App />
-      </Provider>
-    </ThemeProvider>
-  </StylesProvider>,
+      </ThemeProvider>
+    </StylesProvider>
+  </Provider>,
   document.getElementById('root')
 );
 

@@ -5,7 +5,6 @@ import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
-import { setLoading } from './Utilitis/action';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -16,14 +15,8 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-const App = ({ Loading, setLoading }: any) => {
+const App = ({ Loading }: any) => {
   const classes = useStyles();
-
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-  }, [])
 
   return (
     <div>
@@ -48,8 +41,5 @@ const mapStateToProps = (state: any) => ({
   Loading: state.Loading
 })
 
-const mapDispatchToProps = (dispatch: any) => ({
-  setLoading: (loading: boolean) => dispatch(setLoading(loading))
-})
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);
