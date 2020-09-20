@@ -3,17 +3,11 @@ import { useEffect } from 'react';
 import { FileUploader } from './../../Components';
 import { connect } from 'react-redux';
 import { setLoading } from './../../Utilitis/action';
-import axios from 'axios';
+import transportLayer from '../../Utilitis/transportLayer';
 
 const Home = ({ setLoading }: any) => {
     useEffect(() => {
-        setLoading(true)
-        axios.get('http://localhost:3000/posts').then(response => {
-            setTimeout(() => {
-                console.log(response);
-                setLoading(false);
-            }, 1500)
-        })
+        transportLayer().getData().then(response => console.log(response))
     }, [])
 
     const fileUpload = (data: any) => {

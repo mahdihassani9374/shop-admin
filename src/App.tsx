@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React  from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Home, Category, Product, Layout } from './Components';
 import Backdrop from '@material-ui/core/Backdrop';

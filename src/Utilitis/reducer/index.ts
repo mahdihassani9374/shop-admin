@@ -8,9 +8,8 @@ const initData: InitModel = {
 }
 
 const commentReducer = (state: any = initData, action: any) => {
-    console.log(state, action);
     switch (action.type) {
-        case SET_LOADING: setLoading(state, action.payload);
+        case SET_LOADING: setLoading(state, action.payload);break;
         default: return state
     }
 }
