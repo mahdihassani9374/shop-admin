@@ -9,8 +9,12 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import { Box } from '@material-ui/core';
+import { Box, Checkbox } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography/Typography';
+import Grid from '@material-ui/core/Grid/Grid';
+import Img from './../../Assets/Img/product.jpg';
+import List from '@material-ui/core/List/List';
+import ListItem from '@material-ui/core/ListItem';
 
 const useStyles = makeStyles((theme: Theme) => ({
     paper: {
@@ -22,6 +26,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     root: {
         flexGrow: 1,
         backgroundColor: theme.palette.background.paper,
+    },
+    img: {
+        width: 100
     }
 }));
 
@@ -65,6 +72,11 @@ const FileUploader = ({ callback }: Props) => {
 
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
+    const [checked, setChecked] = React.useState(false);
+
+    const handleChangeCheck = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setChecked(event.target.checked);
+    };
 
     const fileUploader = (files: any) => {
         callback(files);
@@ -109,7 +121,21 @@ const FileUploader = ({ callback }: Props) => {
                     </div>
                 </TabPanel>
                 <TabPanel value={value} index={1}>
-                    
+                    <List style={{ height: 250, overflowY: 'scroll', overflowX: 'hidden' }}>
+                        <Grid container spacing={3}>
+                            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map(item =>
+                                <Grid item>
+                                    <ListItem>
+                                        <img src={Img} alt="product" style={{ width: 80 }} />
+                                        <Checkbox
+                                            checked={checked}
+                                            onChange={handleChangeCheck}
+                                            inputProps={{ 'aria-label': 'primary checkbox' }}
+                                        />
+                                    </ListItem>
+                                </Grid>)}
+                        </Grid>
+                    </List>
                 </TabPanel>
             </DialogContent>
             <DialogActions>

@@ -10,6 +10,8 @@ import Paper from '@material-ui/core/Paper';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Tooltip from '@material-ui/core/Tooltip/Tooltip';
+import Img from './../../../../Assets/Img/product.jpg';
+import Avatar from '@material-ui/core/Avatar';
 
 const useStyles = makeStyles({
   table: {
@@ -45,6 +47,7 @@ export default function SimpleTable() {
       <Table className={classes.table}>
         <TableHead>
           <TableRow>
+            <TableCell>عکس محصول</TableCell>
             <TableCell>عنوان محصول</TableCell>
             <TableCell align="right">دسته بندی</TableCell>
             <TableCell align="right">قیمت</TableCell>
@@ -54,7 +57,10 @@ export default function SimpleTable() {
         <TableBody>
           {rows.map((row) => (
             <TableRow key={row.name}>
-              <TableCell component="th" scope="row">
+              <TableCell>
+                <Avatar src={Img} style={{ width: 60, height: 60 }} />
+              </TableCell>
+              <TableCell component="th" scope="row" >
                 {row.name}
               </TableCell>
               <TableCell align="right">{row.category}</TableCell>
