@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Home, Category, Product, Layout } from './Components';
 import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { connect } from 'react-redux';
+import { setLoading } from './Utilitis/action';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -14,14 +16,12 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-const App = () => {
-
-  const [open, setOpen] = useState<boolean>(true);
+const App = ({ Loading, setLoading }: any) => {
   const classes = useStyles();
 
   useEffect(() => {
     setTimeout(() => {
-      setOpen(false);
+      setLoading(false);
     }, 1000);
   }, [])
 
@@ -37,11 +37,19 @@ const App = () => {
           </Layout>
         </Switch>
       </BrowserRouter>
-      <Backdrop className={classes.backdrop} open={open}>
+      <Backdrop className={classes.backdrop} open={Loading}>
         <CircularProgress color="inherit" />
       </Backdrop>
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = (state: any) => ({
+  Loading: state.Loading
+})
+
+const mapDispatchToProps = (dispatch: any) => ({
+  setLoading: (loading: boolean) => dispatch(setLoading(loading))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
