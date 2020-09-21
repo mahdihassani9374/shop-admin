@@ -4,3 +4,4 @@ export { Category } from './Category';
 export { Product } from './Product';
 export { NoMatch } from './NoMatch';
 export { FileUploader } from './FileUploader';
+export { Login } from './Login';

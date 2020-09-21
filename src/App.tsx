@@ -1,6 +1,6 @@
-import React  from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { Home, Category, Product, Layout } from './Components';
+import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { Home, Category, Product, Layout, Login } from './Components';
 import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
@@ -21,14 +21,13 @@ const App = ({ Loading }: any) => {
   return (
     <div>
       <BrowserRouter>
-        <Switch>
-          <Layout>
-            <Route exact path="/" component={Home}></Route>
-            <Route path="/category" component={Category}></Route>
-            <Route path="/product" component={Product}></Route>
-            {/* <Route component={NoMatch} /> */}
-          </Layout>
-        </Switch>
+      <Route path="/login" component={Login}></Route>
+        <Layout>
+          <Route exact path="/" component={Home}></Route>
+          <Route path="/category" component={Category}></Route>
+          <Route path="/product" component={Product}></Route>
+          {/* <Route component={NoMatch} /> */}
+        </Layout>
       </BrowserRouter>
       <Backdrop className={classes.backdrop} open={Loading}>
         <CircularProgress color="inherit" />
