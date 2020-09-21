@@ -19,6 +19,7 @@ import CategoryIcon from '@material-ui/icons/Category';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { Link } from 'react-router-dom'
 import HomeIcon from '@material-ui/icons/Home';
+import AccountCircle from '@material-ui/icons/AccountCircle';
 
 const drawerWidth = 240;
 
@@ -33,6 +34,8 @@ const useStyles = makeStyles((theme: Theme) =>
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
       }),
+      flexGrow: 1,
+      justifyContent:'space-between'
     },
     appBarShift: {
       marginLeft: drawerWidth,
@@ -124,6 +127,17 @@ const Layout = (props: any) => {
           <Typography variant="h6" noWrap>
             پنل مدیریتی
           </Typography>
+
+          <div>
+            <IconButton
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              color="inherit"
+            >
+              <AccountCircle />
+            </IconButton>
+          </div>
         </Toolbar>
       </AppBar>
       <Drawer

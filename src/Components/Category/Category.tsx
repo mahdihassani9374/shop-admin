@@ -8,6 +8,7 @@ import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import { Link, Tooltip } from '@material-ui/core';
 import { List, Define } from './Components';
 import { useState } from 'react';
+import { Layout } from './../Layout'
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -27,7 +28,7 @@ const Category = () => {
 
     }
 
-    return <div>
+    return <Layout>
         <Breadcrumbs aria-label="breadcrumb">
             <Typography color="textPrimary">دسته بندی : </Typography>
             <Link color="inherit" onClick={handleClick}>
@@ -46,7 +47,7 @@ const Category = () => {
         </Tooltip>
         {openCaterory && <Define openCaterory={openCaterory} setOpenCategory={setOpenCategory} />}
         <List />
-    </div>
+    </Layout>
 }
 
 export default Category;

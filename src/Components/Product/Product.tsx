@@ -4,6 +4,7 @@ import React from 'react';
 import { Table } from './Components';
 import AddIcon from '@material-ui/icons/Add';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import { Layout } from './../Layout'
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -16,14 +17,14 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const Product = () => {
     const classes = useStyles();
-    return <div>
+    return <Layout>
         <Tooltip title="اضافه نمودن محصول جدید" aria-label="add">
             <Fab color="secondary" className={classes.fab}>
                 <AddIcon />
             </Fab>
         </Tooltip>
         <Table />
-    </div>
+    </Layout>
 }
 
 export default Product;

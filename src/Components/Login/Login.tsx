@@ -11,6 +11,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { useForm } from 'react-hook-form';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -35,6 +36,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignIn() {
   const classes = useStyles();
+  const { register, handleSubmit , errors } = useForm();
+
+  const submit = (data: any) => { console.log(data) }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -46,29 +50,31 @@ export default function SignIn() {
         <Typography component="h1" variant="h5">
           ورود به پنل مدیریتی
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} onSubmit={handleSubmit(submit)}>
           <TextField
             variant="outlined"
             margin="normal"
-            required
             fullWidth
             id="email"
             label="نام کاربری"
             name="username"
-            autoComplete="username"
+            // autoComplete="username"
             autoFocus
+            inputRef={register({required:true})}
           />
+          {errors.username && <div style={{color:'red'}}>نام کاربری الزامی است </div>}
           <TextField
             variant="outlined"
             margin="normal"
-            required
             fullWidth
             name="password"
             label="رمز عبور"
             type="password"
             id="password"
-            autoComplete="current-password"
+            // autoComplete="current-password"
+            inputRef={register({required:true})}
           />
+          {errors.password && <div style={{color:'red'}}>رمز عبور الزامی است </div>}
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="مرا به خاطر بسپار"
@@ -84,10 +90,10 @@ export default function SignIn() {
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link href="#" variant="body2">
+              <Link variant="body2">
                 رمزم را فراموش کردم
               </Link>
-            </Grid>            
+            </Grid>
           </Grid>ّ
         </form>
       </div>

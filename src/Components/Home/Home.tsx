@@ -4,6 +4,7 @@ import { FileUploader } from './../../Components';
 import { connect } from 'react-redux';
 import { setLoading } from './../../Utilitis/action';
 import transportLayer from '../../Utilitis/transportLayer';
+import { Layout } from './../Layout'
 
 const Home = ({ setLoading }: any) => {
     useEffect(() => {
@@ -13,9 +14,9 @@ const Home = ({ setLoading }: any) => {
     const fileUpload = (data: any) => {
         console.log(data)
     }
-    return <div >
+    return <Layout>
         <FileUploader callback={fileUpload} />
-    </div >
+    </Layout>
 }
 
 
