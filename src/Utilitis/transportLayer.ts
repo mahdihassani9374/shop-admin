@@ -15,7 +15,7 @@ axios.interceptors.response.use(function (response) {
     return response;
 }, function (error) {
     console.log('error', error.response.status);
-    (window as any).location = '/login';
+    // (window as any).location = '/login';
     if (401 === error.response.status) {
         
     } else {
