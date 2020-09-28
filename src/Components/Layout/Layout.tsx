@@ -20,6 +20,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { Link } from 'react-router-dom'
 import HomeIcon from '@material-ui/icons/Home';
 import AccountCircle from '@material-ui/icons/AccountCircle';
+import { Notification } from './Components';
 
 const drawerWidth = 240;
 
@@ -27,6 +28,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       display: 'flex',
+      flexGrow: 1
     },
     appBar: {
       zIndex: theme.zIndex.drawer + 1,
@@ -35,7 +37,10 @@ const useStyles = makeStyles((theme: Theme) =>
         duration: theme.transitions.duration.leavingScreen,
       }),
       flexGrow: 1,
-      justifyContent:'space-between'
+      justifyContent: 'space-between',
+      display:'flex',
+      flexDirection:'row',
+      alignItems:'center'
     },
     appBarShift: {
       marginLeft: drawerWidth,
@@ -127,18 +132,8 @@ const Layout = (props: any) => {
           <Typography variant="h6" noWrap>
             پنل مدیریتی
           </Typography>
-
-          <div>
-            <IconButton
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
-          </div>
         </Toolbar>
+        <Notification />
       </AppBar>
       <Drawer
         variant="permanent"
